@@ -27,4 +27,4 @@ migrate_dev:
 	FLASK_APP=$(FLASK_APP) FLASK_ENV=$(FLASK_ENV) flask db migrate -m "Development migration."
 	FLASK_APP=$(FLASK_APP) FLASK_ENV=$(FLASK_ENV) flask db upgrade
 
-.PHONY: init_db test_with_migration test migrate_dev
+.PHONY: init_db ci_test_with_migration test migrate_dev
