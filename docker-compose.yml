@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:12
+    environment:
+      - POSTGRES_USER=face_client_user
+      - POSTGRES_PASSWORD=fAcE_Cli3nt132435
+    volumes:
+      - data:/var/lib/postgresql/data/
+    ports:
+      - "5435:5432"
+
+volumes:
+  data:
