@@ -35,6 +35,10 @@ jobs:
           disable-changelog: true
           node-module: false
           release-branches: '["main"]'
+      - name: Output
+        if: steps.release.outputs.released == 'true'
+        run: |
+          echo released version: ${{ steps.release.outputs.version }}, type: ${{ steps.release.outputs.level }}
 
   build_and_push:
     needs: release
