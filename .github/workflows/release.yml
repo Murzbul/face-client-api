@@ -30,6 +30,7 @@ jobs:
           token: ${{ env.GITHUB_TOKEN }}
 
       - name: Release
+        id: release
         uses: ridedott/release-me-action@master
         with:
           disable-changelog: true
