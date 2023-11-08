@@ -11,7 +11,6 @@ init_db:
 
 # Run tests with migration
 ci_test_with_migration:
-	FLASK_APP=main_test.py FLASK_ENV=test APP_SETTINGS=config.TestingConfig DATABASE_URI=$(DATABASE_URI) flask db migrate -m "Initial migration."
 	FLASK_APP=main_test.py FLASK_ENV=test APP_SETTINGS=config.TestingConfig DATABASE_URI=$(DATABASE_URI) flask db upgrade
 	FLASK_APP=main_test.py FLASK_ENV=test APP_SETTINGS=config.TestingConfig DATABASE_URI=$(DATABASE_URI) python -m unittest discover -s tests
 	rm -rf app.db
