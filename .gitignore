@@ -3,6 +3,12 @@ __pycache__/
 *.py[cod]
 *$py.class
 app.db
+.terraform
+.terraform.lock.hcl
+public_ips.txt
+infra.out
+.idea/*
+*.tfvars
 
 # C extensions
 *.so
