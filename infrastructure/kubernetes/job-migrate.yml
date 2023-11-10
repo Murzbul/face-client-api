@@ -1,0 +1,30 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: face-client-api-db-migration
+spec:
+  template:
+    spec:
+      containers:
+      - name: db-migration
+        image: murzbul/face-client-api:1.0.13
+        command: ["flask"]
+        args: ["--app", "main.py", "db", "upgrade"]
+        env:
+        - name: APP_SETTINGS
+          valueFrom:
+            secretKeyRef:
+              name: face-client
+              key: APP_SETTINGS
+        - name: DATABASE_URI
+          valueFrom:
+            secretKeyRef:
+              name: face-client
+              key: DATABASE_URI
+        - name: SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: face-client
+              key: SECRET_KEY
+      restartPolicy: OnFailure
+  backoffLimit: 4

@@ -1,0 +1,4 @@
+do_token="your_digitalocean_token"
+PATH_TO_PRIVATE_KEY="~/.ssh/id_rsa"
+github_token="your_github_token"
+secure_password="secure_password"
