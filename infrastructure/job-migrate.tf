@@ -1,3 +1,4 @@
+
 resource "kubernetes_job" "db_migration" {
   metadata {
     name = "face-client-api-db-migration"
@@ -7,9 +8,15 @@ resource "kubernetes_job" "db_migration" {
     backoff_limit = 4
 
     template {
+      metadata {
+        labels = {
+          job-name = "face-client-api-db-migration"
+        }
+      }
+
       spec {
         container {
-          image   = "murzbul/face-client-api:1.0.13"
+          image   = "murzbul/face-client-api:1.1.0"
           name    = "db-migration"
           command = ["flask"]
           args    = ["--app", "main.py", "db", "upgrade"]

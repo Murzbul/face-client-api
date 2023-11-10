@@ -9,7 +9,7 @@ resource "kubernetes_service" "web" {
     }
 
     port {
-      port        = 5000
+      port        = 80
       target_port = 5000
       protocol    = "TCP"
     }

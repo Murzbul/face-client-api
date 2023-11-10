@@ -1,3 +1,4 @@
+
 resource "kubernetes_secret" "face-client" {
   metadata {
     name = "face-client"

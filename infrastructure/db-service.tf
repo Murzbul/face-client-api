@@ -48,27 +48,6 @@ resource "kubernetes_stateful_set" "db" {
               }
             }
           }
-
-          volume_mount {
-            mount_path = "/var/lib/postgresql/data"
-            name       = "db-data"
-          }
-        }
-      }
-    }
-
-    volume_claim_template {
-      metadata {
-        name = "db-data"
-      }
-
-      spec {
-        access_modes = ["ReadWriteOnce"]
-
-        resources {
-          requests = {
-            storage = "1Gi"
-          }
         }
       }
     }

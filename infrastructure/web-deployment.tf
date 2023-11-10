@@ -21,7 +21,7 @@ resource "kubernetes_deployment" "web" {
 
       spec {
         container {
-          image = "murzbul/face-client-api:1.0.13"
+          image = "murzbul/face-client-api:1.1.0"
           name  = "web"
 
           port {

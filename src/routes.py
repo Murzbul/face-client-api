@@ -24,7 +24,12 @@ def configure_routes(app):
 
             db.session.add(client)
             db.session.commit()
-            return "Client added with id={}".format(client.id), 201
+
+            return jsonify({
+                "data": {
+                    "message": "Client added with id={}".format(client.id)
+                }}
+            ), 201
         except Exception as e:
             return str(e)
 
